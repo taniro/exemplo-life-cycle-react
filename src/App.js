@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+	constructor() {
+		super();
+		this.state = {};
+		console.log("constructor()");
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	componentDidMount() {
+		//obter dados para exibir
+		console.log("componentDidMount()");
+		//this.setState({}); dispara um update
+	}
+
+	componentDidUpdate() {
+		console.log("componentDidUpdate()");
+	}
+
+	componentWillUnmount() {
+		//remover event listeners. Desligar componentes antes dele desaparecer.
+		console.log("componentWillUnmount()");
+	}
+
+	handleClick() {
+		this.setState({});
+	}
+
+	render() {
+		console.log("render()");
+		return (
+			<div>
+				<h1>Hello</h1>
+				<button onClick={this.handleClick}>Click to update</button>
+			</div>
+		);
+	}
 }
 
 export default App;
